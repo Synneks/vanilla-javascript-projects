@@ -25,6 +25,21 @@ function updateIcon() {
 // Update progress & timestamp
 function updateProgress() {
     progress.value = (video.currentTime / video.duration) * 100;
+
+    //Get minutes
+    let mins = Math.floor(video.currentTime / 60);
+    if (mins < 10) {
+        mins = "0" + String(mins);
+    }
+    console.log(mins + " " + video.currentTime)
+
+    // Get seconds
+    let seconds = Math.floor(video.currentTime % 60);
+    if (seconds < 10) {
+        seconds = "0" + String(seconds);
+    }
+
+    timestamp.innerHTML = mins + ":" + seconds;
 }
 
 // Set video time to progress
